@@ -76,6 +76,8 @@ main {
   top: -8px;
   font-size: 40px;
   margin-right: 10px;
+  height: 44px;
+  width: 44px;
 }
 
 .current-temperature-value {
