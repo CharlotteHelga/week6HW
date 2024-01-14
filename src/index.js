@@ -5,6 +5,8 @@ function displayTemperature(response) {
   let descriptionElement = document.querySelector("#description");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#current-temperature-icon");
+  let currentDateELement = document.querySelector("#current-date");
+  let currentDate = new Date(response.data.time * 1000);
 
   console.log(response.data);
   let temperature = Math.round(response.data.temperature.current);
@@ -15,6 +17,7 @@ function displayTemperature(response) {
   humidElement.innerHTML = `${response.data.temperature.humidity}%`;
   windElement.innerHTML = `${response.data.wind.speed} km/h`;
   iconElement.innerHTML = response.data.condition.icon;
+  currentDateELement.innerHTML = formatDate(currentDate);
 }
 
 function search(event) {
@@ -56,8 +59,3 @@ function formatDate(date) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
-
-let currentDateELement = document.querySelector("#current-date");
-let currentDate = new Date();
-
-currentDateELement.innerHTML = formatDate(currentDate);
