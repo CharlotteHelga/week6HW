@@ -90,7 +90,22 @@ main {
   position: relative;
   top: -38px;
 }
-
+.weather-forecast {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px;
+}
+.weather-forecast-day {
+  text-align: center;
+  padding: 20px;
+  display: block;
+}
+.weather-forecast-temperatures {
+  display: flex;
+}
+.weather-forecast-temperature-max {
+  margin-right: 10px;
+}
 footer {
   border-top: 1px solid #f9f7fe;
   text-align: center;
