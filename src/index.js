@@ -61,7 +61,7 @@ function formatDate(date) {
 function formatDay(daystamp) {
   let date = new Date(daystamp * 1000);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-  return days[date.getDay];
+  return days[date.getDay()];
 }
 
 function displayForecast(response) {
