@@ -32,9 +32,6 @@ function search(event) {
   axios.get(apiUrl).then(weatherDisplay);
 }
 
-let date = new Date();
-let day = date.getDay();
-
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
@@ -61,18 +58,24 @@ function formatDate(date) {
   let formattedDay = days[day];
   return `${formattedDay} ${hours}:${minutes}`;
 }
+function formatDay(daystamp) {
+  let date = new Date(daystamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[date.getDay];
+}
+
 function displayForecast(response) {
   console.log(response.data);
 
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
-  response.data.daily.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
       <div class="weather-forecast-day">
-        <div class="weather-forecast-date">Thu</div>
+        <div class="weather-forecast-date">${formatDay(day.time)}</div>
         <div class="weather-forecast-icon">
         <img src="${day.condition.icon_url}">
         </div>
@@ -86,6 +89,7 @@ function displayForecast(response) {
         </div>
       </div>
     `;
+    }
   });
 
   let forecastElement = document.querySelector("#forecast");

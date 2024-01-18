@@ -93,25 +93,30 @@ main {
 }
 .weather-forecast {
   display: flex;
-  justify-content: space-evenly;
-  margin: 30px;
+  justify-content: space-around;
+  /* margin: 30px; */
 }
 .weather-forecast-day {
   text-align: center;
-  padding: 20px;
+  margin: 10px;
   display: block;
 }
 .weather-forecast-icon {
-  margin-top: 20px;
+  
+  display: flex;
+  justify-content: space-around;
+  width: 40px;
+  height: 40px;
 }
 .weather-forecast-temperatures {
   display: flex;
   color: #f65282;
-  margin: 20px;
+  /* margin-top: 60px; */
 }
 .weather-forecast-temperature-max {
   margin-right: 10px;
 }
+
 footer {
   border-top: 1px solid #f9f7fe;
   text-align: center;
