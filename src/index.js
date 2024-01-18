@@ -32,6 +32,9 @@ function search(event) {
   axios.get(apiUrl).then(weatherDisplay);
 }
 
+let date = new Date();
+let day = date.getDay();
+
 function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
@@ -64,18 +67,22 @@ function displayForecast(response) {
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
-  days.forEach(function (day) {
+  response.data.daily.forEach(function (day) {
     forecastHtml =
       forecastHtml +
       `
       <div class="weather-forecast-day">
-        <div class="weather-forecast-date">${day}</div>
-        <div class="weather-forecast-icon">🌤️</div>
+        <div class="weather-forecast-date">Thu</div>
+        <div class="weather-forecast-icon">
+        <img src="${day.condition.icon_url}">
+        </div>
         <div class="weather-forecast-temperatures">
           <div class="weather-forecast-temperature-max">
-            <strong>15º</strong>
+            <strong>${Math.round(day.temperature.maximum)}°</strong>
           </div>
-          <div class="weather-forecast-temperature-min">9º</div>
+          <div class="weather-forecast-temperature-min">${Math.round(
+            day.temperature.minimum
+          )}°</div>
         </div>
       </div>
     `;
@@ -96,4 +103,4 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
 //search("Paris");
-displayForecast();
+//displayForecast();
