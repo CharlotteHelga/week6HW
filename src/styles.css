@@ -99,7 +99,7 @@ main {
 .weather-forecast-day {
   text-align: center;
   margin-top: 10px;
-  padding: 25px;
+  padding: 18px;
   display: block;
   background-color: rgba(232, 240, 254, 0.5);
   border-radius: 5px;
