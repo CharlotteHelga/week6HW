@@ -48,6 +48,7 @@ main {
 
 .current-temperature {
   font-size: 48px;
+  margin-top: -15px;
 }
 
 .current-weather {
@@ -100,8 +101,13 @@ main {
   padding: 20px;
   display: block;
 }
+.weather-forecast-icon {
+  margin-top: 20px;
+}
 .weather-forecast-temperatures {
   display: flex;
+  color: #f65282;
+  margin: 20px;
 }
 .weather-forecast-temperature-max {
   margin-right: 10px;
